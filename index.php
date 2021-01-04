@@ -1,24 +1,23 @@
 <?php
-// creating variables
-  $name = 'Anh';
-  $age = 27;
+// To connect to db we can either use... MySQLi (allows for use of db in a more prodedural manner) or PDO (PHP Data Objects)
 
-// creating constants
-  define('PI', 3.14); // redefining 'PI' will cause an error
+// connecting to db (mysqli_connect takes in host, user, password, and db)
+$conn = mysqli_connect("localhost", "root");
+
+// check connection
+if (!$conn) {
+  echo 'Connection error ' . mysqli_connect_error();
+} else {
+  // print_r($conn);
+}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>my first php file</title>
-</head>
-<body>
-
-  <h1><?php echo 'hello, world';?></h1>
-  <p><?php echo 'my name is ' . $name;?></p>
-  <p><?php echo 'i am ' . $age . ' years old'; ?> </p>
-  <p><?php echo 'the value of pi is ' . PI; ?></p>
-</body>
+  <?php include('templates/header.php'); ?>
+  <?php echo 'Welcome to the Home Page!'?>
+  <?php include('templates/footer.php'); ?>
+  <?php include('sandbox.php'); ?>
+  
 </html>
